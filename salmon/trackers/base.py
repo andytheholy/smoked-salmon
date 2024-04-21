@@ -410,7 +410,7 @@ class BaseGazelleApi:
         torrent_ids = []
         soup = BeautifulSoup(text, "html.parser")
         for pl in soup.find_all("a", class_="tooltip"):
-            torrent_url = re.search(r"torrents.php\?torrentid=(\d+)", pl["href"])
+            torrent_url = re.search(r"torrents.php\?id=(\d+)", pl["href"])
             if torrent_url:
                 torrent_ids.append(int(torrent_url[1]))
         return max(torrent_ids)
